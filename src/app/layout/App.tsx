@@ -1,9 +1,15 @@
-function App() {
+import NavBar from './nav/NavBar'
+import Hero from '../features/Brand/dashboard/Hero'
+
+export default function App() {
 
   return (
-    <h1>Feel the SPACE</h1>
+        <div>
+        <NavBar />
+        <Hero />
+        </div>
+
   )
 }
 
-export default App
 

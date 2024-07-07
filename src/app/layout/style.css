@@ -67,20 +67,10 @@ SPACING System (px)
 /* General  REUSABLE Components*/
 /*********************************/
 
-.container {
+.ui.container {
     max-width: 120rem;
-    padding: 0 3.2rem;
+    padding: 2rem 3.2rem;
     margin: 0 auto;
-}
-
-.grid {
-    display: grid;
-    row-gap: 8.4rem;
-    column-gap: 6.4rem;
-}
-
-.grid--2-cols {
-    grid-template: repeat(2, 1fr);
 }
 
 

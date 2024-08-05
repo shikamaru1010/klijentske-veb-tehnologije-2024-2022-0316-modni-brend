@@ -1,14 +1,15 @@
 export type AppCollection = {
-    id: string;
-    title: string;
-    category: string;
-    description: string;
-    hostPhotoURL: string;
+    id?: string;
+    title?: string;
+    category?: string;
+    description?: string;
+    hostPhotoURL?: string;
+    price?: string;
 };
 export type AppQuestion = {
     id: string;
     name: string;
-    species: String;
+    species: string;
     date: string;
     description: string;
 

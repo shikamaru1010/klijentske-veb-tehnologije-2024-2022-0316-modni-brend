@@ -1,22 +1,23 @@
 import NavBar from './nav/NavBar'
-import Hero from '../features/Brand/dashboard/Hero'
 import { Container } from 'semantic-ui-react'
+import { Outlet, useLocation } from 'react-router-dom'
+import HomePage from '../features/home/HomePage';
 
-import CollectionDashboard from '../features/Brand/dashboard/CollectionDashboard'
-import { useState } from 'react'
 
 export default function App() {
-  const [formOpen, setFormOpen] = useState(false);
+  const location = useLocation();
 
   return (
-        <div>
-        <NavBar setFormOpen={setFormOpen}/>
-        <Hero />
+      <>
+      {location.pathname === "/" ? <HomePage/> : (
+      <>
+        <NavBar/>
         <Container className='main'>
-          <CollectionDashboard formOpen={formOpen} setFormOpen={setFormOpen}/>
+          {location.pathname === "/" ? <HomePage /> : <Outlet />}
         </Container>
-
-        </div>
+      </>
+      )}
+      </>
 
   )
 }

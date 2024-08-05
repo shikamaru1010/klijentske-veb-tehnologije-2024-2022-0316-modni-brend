@@ -1,35 +1,35 @@
+import { NavLink } from 'react-router-dom';
 import {Menu,Container, MenuItem, Button} from 'semantic-ui-react';
+import SignedOutButtons from './SignedOutButtons';
+import SignedInMenu from './SignedInMenu';
+import { useState } from 'react';
 
-type Props = {
-    setFormOpen: 
-        (value: boolean) => void;
-    
-}
-export default function NavBar({setFormOpen}: Props) {
+
+export default function NavBar() {
+    const[auth,setAuth] = useState(true);
   return (
     <Menu inverted={true}>
         <Container className='navBar'>
-            <MenuItem header position='left'>
+            <MenuItem header as={NavLink} to="/" position='left'>
                 <img className='logo' src="/logo.png" alt='Logo' style={{width: "fit-content"}} height={100} />
             </MenuItem>
             <MenuItem className='Links'>
                     <ul className="main-nav-list">
-                        <li><a href="index.html" className="main-nav-link">Home</a></li>
+                        <Button as={NavLink} to="/">
+
+                        <li>Home</li>
+                        </Button>
                         <Button 
-                        onClick={() => setFormOpen(true)}
-                        floated='right' positive={true} inverted={true} content="Ask">
+                        as={NavLink} to="Ask Us"
+                        floated='right' positive={true} inverted={true} content="Ask Us">
 
                         </Button>
-                        <li><a href="html/contact.html" className="main-nav-link">Contact</a></li>
+                        <Button as={NavLink} to="/Brand">
+                        <li>Collection</li>
+                        </Button>
                     </ul>
             </MenuItem>
-            <MenuItem position='right' className='navBarLogs'>
-                <button className="ui icon button">
-                    <i className="user icon"></i>
-                </button>
-                <Button basic inverted content='Login' />
-                <Button basic inverted content='Register'/>
-            </MenuItem>
+            {auth ?  <SignedInMenu setAuth={setAuth}/> : <SignedOutButtons setAuth={setAuth}/>}
         </Container>
     </Menu>
   )

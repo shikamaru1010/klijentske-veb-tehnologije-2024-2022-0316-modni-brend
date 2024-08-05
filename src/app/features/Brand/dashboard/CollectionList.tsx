@@ -6,21 +6,20 @@ import CollectionListItem4 from "./CollectionListItem4";
 import CollectionListItem5 from "./CollectionListItem5";
 import CollectionListItem6 from "./CollectionListItem6";
 
-
 type Props = {
-  collections: AppCollection[];
+  collections: AppCollection;
 }
-export default function CollectionList({collections}: Props) {
+
+export default function CollectionList() {
   return (
     <>
     <CollectionListItem1 />
     <CollectionListItem2 />
     <CollectionListItem3 />
     <CollectionListItem4 />
-    {collections.map((collection: any) =>(
-    <CollectionListItem5 key={collection.id}collection={collection}/>
-    ))}
+    <CollectionListItem5 />
     <CollectionListItem6 />
+    
     
 
     </>

@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import {Segment,Header,Form,Button} from 'semantic-ui-react'
-import { AppQuestion } from '../../../types/collection';
-import { createId } from '@paralleldrive/cuid2';
+import {Segment,Header,Form,Button} from 'semantic-ui-react';
 
 
-type Props={
-    setFormOpen: (value: boolean) => void;
-    addQuestion: (question: AppQuestion) => void;
-}
 
-export default function form({setFormOpen,addQuestion}:Props) {
+
+export default function form() {
     const initialValues = {
         title: '',
         species: '',
@@ -17,16 +12,17 @@ export default function form({setFormOpen,addQuestion}:Props) {
         date: ''
     }
    
-    const [values,setvalues] = useState(initialValues);
+    const [values,setValues] = useState(initialValues);
 
     function onSubmit(){
-        addQuestion({...values, id: createId(),name: 'Marko',species: 'Buying',date: '',description: 'opis'});
-        setFormOpen(false);
+        console.log(values)
+        //addQuestion({...values, id: createId(),name: 'Marko',species: 'Buying',date: '',description: 'opis'});
+        //setFormOpen(false);
     }
 
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>){
         const {name,value} = e.target;
-        setvalues({...values, [name]:value})
+        setValues({...values, [name]:value})
     }
 
 
@@ -64,7 +60,7 @@ export default function form({setFormOpen,addQuestion}:Props) {
 
             <Button type='submit' floated='right' positive content="Submit"/>
             <Button 
-            onClick={() => setFormOpen(false)}
+    
             floated='right' positive content='Cancel'/>
         </Form>
     </Segment>

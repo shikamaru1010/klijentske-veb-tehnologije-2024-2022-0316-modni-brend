@@ -192,6 +192,7 @@ h1:first-child{
     background-position: center;
     display: block;
 
+
 }
 
 .hero {
@@ -207,4 +208,10 @@ h1:first-child{
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.ui.huge.button{
+    font-size: 1.6rem;
+    display: block;
+    width: 20rem;
+    margin: 0 auto;
 }

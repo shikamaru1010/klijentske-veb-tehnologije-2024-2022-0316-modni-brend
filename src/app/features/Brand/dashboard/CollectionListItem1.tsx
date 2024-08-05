@@ -1,6 +1,11 @@
 import {Item,ItemGroup,Segment, SegmentGroup,List,Button } from "semantic-ui-react";
 import CollectionListAttendee from "./CollectionListAttendee";
+import { Link } from "react-router-dom";
+import { AppCollection } from "../../../types/collection";
 
+type Props={
+  collection: AppCollection;
+}
 export default function CollectionListItem() {
   return (
     <SegmentGroup>
